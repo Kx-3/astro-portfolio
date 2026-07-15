@@ -1,26 +1,44 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
+import "../styles/global.css";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/main.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import ExpereinceSection from "@/components/ExperienceSection.astro";
+import { getCollection } from "astro:content";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const experiences = await getCollection("experience");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
-
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+<Layout content={{ title: "Kipkirui Koech - Software Developer" }}>
+  <Header />
+  <main>
+	<section id="about" class="relative py-20">
+	  <div class="px-8 max-w-2xl mx-auto">
+		<SectionHeader title="about" number="01"/>
+		<div class="flex flex-col gap-4 text-lg font-light leading-7 max-w-xl">
+          <p>
+            I'm a frontend developer passionate about creating clean, responsive, and interactive web experiences. My journey started with curiosity about how modern websites work, which quickly turned into a drive to build things from scratch.
+          </p>
+          <p>
+            I work mainly with React, Next.js, TypeScript, and Tailwind CSS — building modern UIs, responsive landing pages, and dynamic web applications. I focus on performance, usability, and clean component structure.
+          </p>
+        </div>
+	  </div>
+	</section>
+	<section id="experience" class="relative py-20">
+	  <div class="px-8 max-w-2xl mx-auto">
+		<SectionHeader title="experience" number="02"/>
+		<ExpereinceSection experiences={experiences}/>
+	  
+		<!-- <div class="flex flex-col gap-4 text-lg font-light leading-7 max-w-xl">
+          <p>
+            I'm a frontend developer passionate about creating clean, responsive, and interactive web experiences. My journey started with curiosity about how modern websites work, which quickly turned into a drive to build things from scratch.
+          </p>
+          <p>
+            I work mainly with React, Next.js, TypeScript, and Tailwind CSS — building modern UIs, responsive landing pages, and dynamic web applications. I focus on performance, usability, and clean component structure.
+          </p>
+        </div> -->
+	  </div>
+	</section>
+  </main>
+</Layout>

@@ -1,0 +1,193 @@
+<header class="header fade-in">
+  <div class="max-w-4xl mx-auto px-20">
+    <div class="text-sm mb-6 font-mono uppercase font-medium tracking-widest">software developer</div>
+    <h1 class="name text-primary font-sans select-none">
+      <span class="name-line">
+        <span class="name-char">k</span><span class="name-char">i</span><span
+          class="name-char">p</span
+        ><span class="name-char">k</span><span class="name-char">i</span><span
+          class="name-char">r</span
+        ><span class="name-char">u</span><span class="name-char">i</span>
+      </span>
+      <span class="name-line">
+        <span class="name-char">k</span><span class="name-char">o</span><span
+          class="name-char">e</span
+        ><span class="name-char">c</span><span class="name-char">h</span>
+      </span>
+    </h1>
+    <p class="text-xl font-light max-w-lg mt-6">
+        I build modern, responsive web interfaces with React, Next.js, and TypeScript.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:kipkiruiketer755@gmail.com">mail</a>
+      <a href="https://github.com/Kx-3" target="_blank" rel="noopener"
+        >github</a
+      >
+      <a href="https://linkedin.com/in/kipkirui-keter/" target="_blank" rel="noopener"
+        >linkedin</a
+      >
+    </div>
+  </div>
+</header>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <span class="back-to-top-icon">&uarr;</span>
+</button>
+
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (backToTop) {
+        backToTop.classList.toggle("visible", window.pageYOffset > 300);
+      }
+    },
+    { passive: true },
+  );
+
+  backToTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const chars = document.querySelectorAll(".name-char");
+    chars.forEach((char, i) => {
+      (char as HTMLElement).style.animationDelay = `${i * 0.06}s`;
+      char.classList.add("fade-in");
+    });
+  });
+</script>
+
+<style>
+  .header {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding-top: 4rem;
+  }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--tertiary-text);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    letter-spacing: 0.04em;
+    margin: 0;
+    line-height: 0.95;
+    text-transform: lowercase;
+  }
+
+  .name-line {
+    display: block;
+  }
+
+  .name-line:first-child {
+    margin-bottom: 0.05em;
+  }
+
+  .name-char {
+    display: inline-block;
+    margin-right: 0.01em;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .title {
+    margin: 2rem 0 0 0;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 30rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-links a {
+    color: var(--primary);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--ring);
+    background: transparent;
+    transition: var(--transition-smooth);
+  }
+
+  .hero-links a:hover {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    transform: translateY(-1px);
+    text-decoration: none;
+    opacity: 1;
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    color: var(--primary-text);
+    border: 1px solid var(--ring);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      min-height: 70vh;
+      padding-top: 3rem;
+    }
+
+    .hero-links {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+</style>
