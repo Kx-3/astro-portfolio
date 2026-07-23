@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kipkirui.dev
+Sitemap: https://kipkirui.dev/sitemap-index.xml
