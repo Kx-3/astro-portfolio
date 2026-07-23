@@ -18,6 +18,19 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
     <title>{title}</title>
 	<meta name="description" content={description} />
+	<meta name="author" content="Kipkirui Koech" />
+	<meta
+      name="keywords"
+      content="Kipkirui Koech, software developer, React, TypeScript, Python, developer tools."
+    />
+	<meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="AarusPortfolio" />
+	<meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
     <script
       defer
       src="https://metrics.kipkirui.dev/script.js"
