@@ -2,8 +2,8 @@
 import NavBar from "@/components/NavBar.astro";
 import "@/styles/global.css";
 const {
-  title = "Kipkirui's Portfolio",
-  description = "CS Student and Software Developer",
+  title = "Kipkirui Koech — CS Student and Software Developer",
+  description = "CS Student and Software Developer specializing in React, TypeScript, and Tailwind CSS. Passionate about building clean, responsive, and interactive web experiences. Experienced in creating modern UIs, responsive landing pages, and dynamic web applications with a focus on performance, usability, and clean component structure.",
 } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -21,8 +21,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 	<meta name="author" content="Kipkirui Koech" />
 	<meta
       name="keywords"
-      content="Kipkirui Koech, software developer, React, TypeScript, Python, developer tools."
+      content="Kipkirui Koech,Software Developer,React,Next.js,TypeScript,Python,Web development,developer tools."
     />
+	<meta name="robots" content="index, follow" />
 	<meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
