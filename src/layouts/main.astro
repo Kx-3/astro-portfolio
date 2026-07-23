@@ -1,7 +1,11 @@
 ---
-import "@/styles/global.css";
-const { content } = Astro.props;
 import NavBar from "@/components/NavBar.astro";
+import "@/styles/global.css";
+const {
+  title = "Kipkirui's Portfolio",
+  description = "CS Student and Software Developer",
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en">
@@ -10,8 +14,14 @@ import NavBar from "@/components/NavBar.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <title>{content.title}</title>
-	<script defer src="https://metrics.kipkirui.dev/script.js" data-website-id="527ee60d-1251-4a85-bd2d-27febe67bf1b"></script>
+	<link rel="canonical" href={canonicalUrl} />
+
+    <title>{title}</title>
+	<meta name="description" content={description} />
+    <script
+      defer
+      src="https://metrics.kipkirui.dev/script.js"
+      data-website-id="527ee60d-1251-4a85-bd2d-27febe67bf1b"></script>
     <script defer>
       const updateProgress = () => {
         const scrollTop =
@@ -47,11 +57,19 @@ import NavBar from "@/components/NavBar.astro";
     </script>
   </head>
   <body>
-	<div class="fixed top-0 left-0 h-0.5 bg-primary transition-all duration-100 ease-out z-50 w-0" id="reading-progress"></div>
+    <div
+      class="fixed top-0 left-0 h-0.5 bg-primary transition-all duration-100 ease-out z-50 w-0"
+      id="reading-progress"
+    >
+    </div>
     <NavBar />
     <slot />
-	<footer class="mt-8 md:mt-12 py-4 md:py-6 border-t border-t-ring animate-fade-in">
-      <div class="max-w-2xl mx-auto px-6 flex justify-between font-normal text-sm text-muted-foreground">
+    <footer
+      class="mt-8 md:mt-12 py-4 md:py-6 border-t border-t-ring animate-fade-in"
+    >
+      <div
+        class="max-w-2xl mx-auto px-6 flex justify-between font-normal text-sm text-muted-foreground"
+      >
         <span class="">&copy; {new Date().getFullYear()} Kipkirui Koech</span>
         <span class="">Built with Astro</span>
       </div>
